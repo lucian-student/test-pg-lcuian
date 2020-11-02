@@ -1,14 +1,23 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="java.util.List" %>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Ovecky</title>
-</head>
-<body>   
-<form action = "response.jsp" method = "GET" >
-Pocet Ovecek: <input type = "number" name = "num_of_ovecek" required>
-<input type = "submit" value = "Submit" />
-</form> 
-</body>
-</html>
-</body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <table
+    </head>
+    <body>
+        <table id="records" border="1">
+            <tr>
+                <th>Den</th>
+                <th>Pocet</th>
+            </tr>
+            <c:forEach var="record" items="${requestScope.records}">
+                <tr>
+                    <td>${record[0]}</td>
+                    <td>${record[1]}</td>
+                </tr>
+            </c:forEach>    
+        </table>     
+    </body>
 </html>
